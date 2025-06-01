@@ -22,8 +22,8 @@
 
 1. **Repository clone করুন:**
 \`\`\`bash
-git clone https://github.com/your-username/islamic-dawah-platform.git
-cd islamic-dawah-platform
+git clone https://github.com/sayemtimes/n2i.git
+cd n2i
 \`\`\`
 
 2. **Dependencies install করুন:**
