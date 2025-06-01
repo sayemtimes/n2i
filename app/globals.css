@@ -10,23 +10,25 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 142.1 76.2% 36.3%;
-    --primary-foreground: 355.7 100% 97.3%;
-    --secondary: 210 40% 98%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 98%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 98%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142.1 76.2% 36.3%;
-    --radius: 0.75rem;
-    --islamic-green: 142.1 76.2% 36.3%;
-    --islamic-gold: 45 93% 47%;
-    --islamic-cream: 48 100% 96%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
   }
 
   .dark {
@@ -36,8 +38,8 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 142.1 70% 45%;
-    --primary-foreground: 222.2 84% 4.9%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
@@ -48,10 +50,12 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 142.1 70% 45%;
-    --islamic-green: 142.1 70% 45%;
-    --islamic-gold: 45 93% 58%;
-    --islamic-cream: 48 100% 6%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -64,22 +68,118 @@
   }
 }
 
-@layer components {
-  .islamic-gradient {
-    @apply bg-gradient-to-r from-emerald-600 via-emerald-500 to-amber-500;
-  }
+/* Bengali Font */
+.bengali-text {
+  font-family: var(--font-bengali), "Noto Sans Bengali", sans-serif;
+}
 
-  .islamic-text-gradient {
-    @apply bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent;
-  }
+/* Arabic Text */
+.arabic-text {
+  font-family: var(--font-arabic), "Amiri", "Times New Roman", serif;
+  direction: rtl;
+  text-align: right;
+}
 
-  .arabic-text {
-    font-family: "Amiri", "Times New Roman", serif;
-    direction: rtl;
-    text-align: right;
-  }
+/* Islamic Gradient */
+.islamic-gradient {
+  background: linear-gradient(135deg, #059669 0%, #d97706 100%);
+}
 
+.islamic-text-gradient {
+  background: linear-gradient(135deg, #059669 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #059669;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #047857;
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Line Clamp Utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
   .bengali-text {
-    font-family: var(--font-bengali), "Noto Sans Bengali", sans-serif;
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-friendly {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Focus Styles for Accessibility */
+.focus-visible:focus {
+  outline: 2px solid #059669;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .islamic-gradient {
+    background: #000;
+    color: #fff;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

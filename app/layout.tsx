@@ -1,15 +1,29 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Noto_Sans_Bengali } from "next/font/google"
+import { Inter, Noto_Sans_Bengali, Amiri } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+})
+
 const notoSansBengali = Noto_Sans_Bengali({
   subsets: ["bengali"],
   variable: "--font-bengali",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+})
+
+const amiri = Amiri({
+  subsets: ["arabic"],
+  variable: "--font-arabic",
+  weight: ["400", "700"],
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -30,7 +44,7 @@ export const metadata: Metadata = {
     title: "ইলম থেকে ইখলাস - From Knowledge to Sincerity",
     description: "Transform your Islamic lifestyle with our comprehensive 4-month guided program",
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -40,7 +54,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="bn" suppressHydrationWarning>
-      <body className={`${inter.variable} ${notoSansBengali.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${notoSansBengali.variable} ${amiri.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-amber-50">
             <Navbar />
