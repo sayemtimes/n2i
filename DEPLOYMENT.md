@@ -78,7 +78,7 @@
    \`\`\`
 
 3. **Nginx Configuration**
-   ```nginx
+   \`\`\`nginx
    server {
        listen 80;
        server_name your-domain.com;
