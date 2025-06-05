@@ -1,0 +1,25 @@
+{
+  "name": "Islamic Dawah Platform",
+  "short_name": "Islamic Dawah",
+  "description": "Complete Islamic lifestyle transformation platform",
+  "start_url": "/mobile",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["education", "lifestyle", "books"],
+  "lang": "bn",
+  "dir": "ltr"
+}
