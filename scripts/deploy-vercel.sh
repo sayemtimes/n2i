@@ -1,39 +1,29 @@
 #!/bin/bash
 
-echo "🚀 Deploying Islamic Dawah Platform to Vercel..."
+echo "🚀 Starting Vercel deployment..."
 
-# Clean up any problematic files
+# Clean up first
 echo "🧹 Cleaning up..."
+rm -rf node_modules
+rm -f package-lock.json
 rm -f pnpm-lock.yaml
 rm -f yarn.lock
-
-# Ensure we're using npm
-echo "📦 Setting up npm..."
-export npm_config_user_agent="npm"
+rm -rf .next
 
 # Install dependencies
-echo "📥 Installing dependencies..."
+echo "📦 Installing dependencies..."
 npm install
 
-# Build locally to check for errors
+# Run linting
+echo "🔍 Running ESLint..."
+npm run lint --fix
+
+# Build project
 echo "🏗️ Building project..."
 npm run build
 
-# Check if build was successful
-if [ $? -eq 0 ]; then
-    echo "✅ Build successful! Deploying to Vercel..."
-    
-    # Deploy to Vercel
-    npx vercel --prod --confirm
-    
-    if [ $? -eq 0 ]; then
-        echo "🎉 Deployment successful!"
-        echo "🌐 Your Islamic Dawah Platform is now live!"
-    else
-        echo "❌ Deployment failed!"
-        exit 1
-    fi
-else
-    echo "❌ Build failed! Please check the errors above."
-    exit 1
-fi
+# Deploy to Vercel
+echo "🌐 Deploying to Vercel..."
+npx vercel --prod
+
+echo "✅ Deployment completed successfully!"
