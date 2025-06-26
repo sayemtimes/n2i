@@ -52,9 +52,9 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "islamic-green": "hsl(var(--islamic-green))",
-        "islamic-gold": "hsl(var(--islamic-gold))",
-        "islamic-cream": "hsl(var(--islamic-cream))",
+        "islamic-green": "#10B981",
+        "islamic-gold": "#F59E0B",
+        "islamic-cream": "#FEF3C7",
       },
       borderRadius: {
         lg: "var(--radius)",
