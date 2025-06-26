@@ -8,24 +8,24 @@
     "hadith",
     "prayer",
     "islamic-education",
-    "mobile-app",
-    "react-native",
-    "expo"
+    "nextjs",
+    "vercel"
   ],
   "homepage": "https://islamicdawah.com",
   "bugs": {
-    "url": "https://github.com/islamic-dawah/platform-mobile/issues"
+    "url": "https://github.com/islamic-dawah/platform/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/islamic-dawah/platform-mobile.git"
+    "url": "https://github.com/islamic-dawah/platform.git"
   },
   "license": "MIT",
   "author": "Islamic Dawah Platform Team",
   "scripts": {
     "build": "next build",
-    "clean": "rm -rf node_modules package-lock.json pnpm-lock.yaml yarn.lock",
+    "clean": "rm -rf node_modules package-lock.json pnpm-lock.yaml yarn.lock .next",
     "deploy:fix": "rm -f pnpm-lock.yaml && npm install && npm run build",
+    "deploy:vercel": "bash scripts/deploy-vercel.sh",
     "dev": "next dev",
     "fresh-install": "npm run clean && npm install",
     "preinstall": "npx only-allow npm",
@@ -99,5 +99,9 @@
     "eslint-config-next": "14.0.4",
     "postcss": "^8.5",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }
