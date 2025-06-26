@@ -24,7 +24,11 @@
   "author": "Islamic Dawah Platform Team",
   "scripts": {
     "build": "next build",
+    "clean": "rm -rf node_modules package-lock.json pnpm-lock.yaml yarn.lock",
+    "deploy:fix": "rm -f pnpm-lock.yaml && npm install && npm run build",
     "dev": "next dev",
+    "fresh-install": "npm run clean && npm install",
+    "preinstall": "npx only-allow npm",
     "lint": "next lint",
     "start": "next start",
     "vercel-build": "next build"
