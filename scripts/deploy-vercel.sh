@@ -2,7 +2,7 @@
 
 echo "🚀 Starting Vercel deployment..."
 
-# Clean up first
+# Clean up old files
 echo "🧹 Cleaning up..."
 rm -rf node_modules
 rm -f package-lock.json
@@ -15,15 +15,15 @@ echo "📦 Installing dependencies..."
 npm install
 
 # Run linting
-echo "🔍 Running ESLint..."
-npm run lint --fix
+echo "🔍 Running linter..."
+npm run lint
 
-# Build project
+# Build the project
 echo "🏗️ Building project..."
 npm run build
 
 # Deploy to Vercel
 echo "🌐 Deploying to Vercel..."
-npx vercel --prod
+npx vercel --prod --yes
 
 echo "✅ Deployment completed successfully!"

@@ -2,17 +2,17 @@
 const nextConfig = {
   output: "standalone",
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   images: {
     domains: ["placeholder.svg"],
-    unoptimized: true,
+    unoptimized: false,
   },
   experimental: {
-    serverComponentsExternalPackages: [],
+    optimizePackageImports: ["lucide-react"],
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
@@ -24,27 +24,6 @@ const nextConfig = {
       }
     }
     return config
-  },
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "X-Frame-Options",
-            value: "DENY",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "origin-when-cross-origin",
-          },
-        ],
-      },
-    ]
   },
 }
 
